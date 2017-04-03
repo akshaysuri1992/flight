@@ -1,0 +1,36 @@
+<?php
+
+include 'config/config.php';
+
+class Greeting
+{
+    public function __construct() {
+        $this->name = 'John Doe';
+	//$this->_funcObject = new functions();
+    }
+
+    public function index() {
+        echo "Hello post, {$this->name}!";
+    }
+
+    public function home() {
+
+	$funct=new functions();
+	$res = $funct->query('SELECT * FROM `adminlogin`', PDO::FETCH_ASSOC);
+
+	print_r($res);
+
+	/*using layout
+	Flight::render('header', array('heading' => 'Hello'), 'header_content');
+	Flight::render('body', array('body' => 'World'), 'body_content');
+	Flight::render('layout', array('title' => 'Home Page'));
+	
+        //using directly to view without using any layout
+	Flight::render('index.php', array('name' => 'Bob'));
+
+
+	//echo $res = $this->_funcObject->$db->query('SELECT * FROM `adminlogin`', PDO::FETCH_ASSOC)*/;
+
+    }
+
+}
